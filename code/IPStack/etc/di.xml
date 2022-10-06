@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Firewalls\IPStack\Api\Data\IPStackApiInterface"
+                type="Firewalls\IPStack\Model\IPStackAPI"/>
+    <preference for="Firewalls\IPStack\Api\IPStackRepositoryInterface"
+                type="Firewalls\IPStack\Model\IPStackRepository"/>
+    <type name="Firewalls\IPStack\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Firewalls\IPStack\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">IP_Stack_Api_Log_New</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Firewalls\IPStack\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

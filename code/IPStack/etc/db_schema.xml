@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ip_stack_api" resource="default" engine="innodb" comment="IP Stack API Logs">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="true" nullable="false" identity="true"
+                comment="IPStack IP ID"/>
+        <column xsi:type="varchar" name="customer_ip" nullable="false" length="255" comment="Customer IP"/>
+        <column xsi:type="varchar" name="customer_city" nullable="false" length="255" comment="Customer City"/>
+        <column xsi:type="varchar" name="customer_zip" nullable="false" length="255" comment="Customer Zip Code"/>
+        <column xsi:type="varchar" name="customer_region_code" nullable="false" length="255"
+                comment="Customer Region Code"/>
+        <column xsi:type="boolean" name="customer_is_eligible" comment="Customer is Eligible Flag"/>
+        <column xsi:type="varchar" name="customer_state" nullable="false" length="255" comment="Customer State"/>
+        <column xsi:type="boolean" name="is_store_customer_zip" comment="Is Store Customer Zip FLag"/>
+        <column xsi:type="varchar" name="customer_country_name" nullable="false" length="255"
+                comment="Customer Country Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
